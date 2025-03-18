@@ -1,11 +1,19 @@
 import React from "react";
 import { FaEnvelope, FaGithub, FaTelegram, FaPhone } from "react-icons/fa";
+import Image  from 'next/image';
 
 const App: React.FC = () => {
   return (
     <div className="min-h-screen flex bg-black text-white p-4">
       <div className="w-80  rounded-lg p-4 flex flex-col items-center">
-        
+        <Image
+          src={"/Logo.jpg"}
+          alt="logo"
+          width={200}
+          height={200}
+          className="rounded-full my-5 border-b-gray-500 border-t-gray-500 border-dashed border-r-white border-l-white shadow-md border-2 "
+        ></Image>
+
         <h2 className="text-xl font-semibold">Abdullayev S.</h2>
 
         <div className="flex flex-wrap gap-2 mt-2">
@@ -28,22 +36,22 @@ const App: React.FC = () => {
           <ContactItem
             icon={<FaEnvelope className="text-red-500" />}
             title="E-pochta"
-            info="pubgn9642@gmail.com"
+            info="abdullayev@gmail.com"
           />
           <ContactItem
             icon={<FaGithub className="text-gray-300" />}
             title="Github"
-            info="github.com/yaxyobekuz"
+            info="github.com/abdullayev"
           />
           <ContactItem
             icon={<FaTelegram className="text-blue-400" />}
             title="Telegram"
-            info="t.me/mryaxyobek"
+            info="t.me/abdullayev"
           />
           <ContactItem
             icon={<FaPhone className="text-green-500" />}
             title="Telefon raqam"
-            info="+998 (20) 007-77-29"
+            info="+998 (93) 624-97-08"
           />
         </div>
       </div>

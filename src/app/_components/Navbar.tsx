@@ -15,7 +15,7 @@ const Navbar = () => {
               <Image
                 width={50}
                 height={50}
-                className="rounded-full border-white border-2 cursor-pointer"
+                className="rounded-full border-1 border-b-gray-500 border-t-gray-500 border-dashed border-r-white border-l-white cursor-pointer"
                 src="/Logo.jpg"
                 alt="logo"
               />
