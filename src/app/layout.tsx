@@ -26,15 +26,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-  
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <div className="w-full">
           <Navbar />
           <div className="flex  ">
-            <SideBar/>
-            <div>{children}</div>
+            <div className="md:w-1/4 w-0">
+              <SideBar />
+            </div>
+            <div className="md:w-3/4 w-full h-screen overflow-y-scroll">
+              {children}
+            </div>
           </div>
         </div>
       </body>
