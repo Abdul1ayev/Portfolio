@@ -7,8 +7,8 @@ import Link from "next/link";
 
 const Navbar = () => {
   return (
-    <nav className="w-full border-b bg-gray-900 text-gray-300 px-6 py-4 shadow-md">
-      <div className="max-w-6xl mx-auto flex items-center justify-between">
+    <nav className="w-full border-b bg-black text-gray-300 px-6 py-4 shadow-md">
+      <div className="w-full mx-auto flex items-center justify-between">
         <Link href="/" className="flex items-center space-x-2">
           <Image
             width={45}
@@ -17,9 +17,7 @@ const Navbar = () => {
             src="/Logo.jpg"
             alt="logo"
           />
-          <span className="text-lg font-semibold hidden sm:block">
-            Abdullayev S.
-          </span>
+          <span className="text-lg font-semibold ">Abdullayev S.</span>
         </Link>
 
         <ul className="hidden md:flex space-x-6 text-base">
@@ -32,7 +30,7 @@ const Navbar = () => {
             <li key={index}>
               <Link
                 href={item.path}
-                className="cursor-pointer border-b-2 border-transparent hover:border-emerald-500 hover:text-white transition-all duration-300"
+                className="cursor-pointer border-b-2 border-transparent hover:border-emerald-500 hover:text-white transition-all duration-300 pb-1"
               >
                 {item.name}
               </Link>
