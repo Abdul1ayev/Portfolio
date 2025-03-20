@@ -37,7 +37,7 @@ const App: React.FC = () => {
   if (!isClient) return null;
 
   return (
-    <div className="min-h-screen flex flex-col bg-black  text-white p-4 items-center">
+    <div className="h-full flex flex-col bg-black  text-white p-4 items-center">
       <div
         className={`fixed top-0 left-0 w-72 h-full bg-black p-6 transition-transform duration-300 shadow-xl ${
           isOpen ? "translate-x-0" : "-translate-x-full"

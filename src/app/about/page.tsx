@@ -67,7 +67,7 @@ const About = () => {
   };
 
   return (
-    <div className="w-full min-h-screen text-white overflow-y-auto p-6 bg-black">
+    <div className="w-full min-h-screen  text-white  p-6 md:pb-18 pb-4 bg-black">
       <div className="mb-10">
         <h1 className="text-3xl font-bold border-b-4 border-green-400 inline-block pb-2">
           Men haqimda

@@ -32,10 +32,10 @@ export default function RootLayout({
         <div className="w-full overflow-y-hidden">
           <Navbar />
           <div className="flex  ">
-            <div className="md:w-1/4 w-0">
+            <div className="md:w-1/4 w-0 ">
               <SideBar />
             </div>
-            <div className="md:w-3/4 w-full ">
+            <div className="md:w-3/4 w-full  owerflow-y-scroll ">
               {children}
             </div>
           </div>
