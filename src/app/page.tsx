@@ -6,10 +6,10 @@ import { motion } from "framer-motion";
 const Page = () => {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }} // Sahifa boshlanganda pastdan ko'tarilib chiqadi
-      animate={{ opacity: 1, y: 0 }} // Asosiy animatsiya
-      exit={{ opacity: 0, y: -20 }} // Chiqishda tepaga yo'qoladi
-      transition={{ duration: 0.6, ease: "easeOut" }} // Animatsiya tezligi va silliqligi
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
       className="h-full flex flex-col justify-center items-center text-center px-4"
       style={{
         backgroundImage: "url('/Home.svg')",
