@@ -11,7 +11,8 @@ type Tools = {
 };
 
 const About = () => {
-  const [tools, setTools] = useState<Tools[] | null>([]);
+  const [tools, setTools] = useState<Tools[]>([]);
+
   const [newTool, setNewTool] = useState({ tool_name: "", image_url: "" });
   const supabase = createClient();
 
@@ -24,12 +25,13 @@ const About = () => {
     if (error) {
       console.error("Error fetching tools:", error);
     } else {
-      setTools(data);
+      setTools(data || []);
     }
   };
 
-  // Base64 formatga rasmni yuklash
-  const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleImageUpload = async (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
     const file = event.target.files?.[0];
     if (file) {
       const reader = new FileReader();
@@ -40,19 +42,29 @@ const About = () => {
     }
   };
 
-  // Yangi tool qo‘shish
   const addTool = async () => {
     if (!newTool.tool_name || !newTool.image_url) {
       alert("Tool nomi va rasmi kiritilishi shart!");
       return;
     }
-    const { data, error } = await supabase.from("tools").insert([newTool]);
+
+    const { data, error } = await supabase
+      .from("tools")
+      .insert([newTool])
+      .select(); // .select() qo'shildi
+
     if (error) {
       console.error("Error adding tool:", error);
-    } else {
-      setTools([...tools, ...data]);
-      setNewTool({ tool_name: "", image_url: "" });
+      return;
     }
+
+    if (!data) {
+      console.error("No data returned from Supabase.");
+      return;
+    }
+
+    setTools([...tools, ...data]);
+    setNewTool({ tool_name: "", image_url: "" });
   };
 
   return (
@@ -62,53 +74,52 @@ const About = () => {
           Men haqimda
         </h1>
         <p className="mt-4">
-          Men Baxriddinov Bekzod, 15 yoshdaman, Buxoro viloyati, Vobkent
-          tumanida tug‘ilganman. Men qiziqarli, ko‘p funksiyalarga ega va kuchli
-          dizaynga ega bo‘lgan dasturlar yaratishga qiziqaman.
-          <br />
-          <br />
-          Mening vazifam – foydalanuvchilar uchun qulay, jozibali va tezkor
-          veb-saytlar yaratish. Sayt dizayni nafaqat chiroyli, balki intuitiv va
-          foydalanishga qulay bo‘lishi muhim. Shuningdek, kodlarni moslashuvchan
-          va samarali yozishga e’tibor beraman.
-          <br />
-          <br />
-          Mening maqsadim – veb-sayt foydalanuvchilari uchun har bir elementni
-          tushunarli va qulay qilish. Agar loyihalarim sizga qiziq bo‘lsa,
-          <strong> Loyihalar</strong> sahifasiga tashrif buyuring! 😊
+          Men Badullayev Samir, 15 yoshdaman, Buxoro viloyati, Kogon shahrida
+          tug‘ilganman. Men qiziqarli, ko‘p funksiyalarga ega va kuchli dizaynga
+          ega bo‘lgan dasturlar yaratishga qiziqaman.
         </p>
         <Link
-          href={"/contacts"}
+          href={"/contact"}
           className="IfoBtn mt-4 inline-block bg-green-500 px-4 py-2 rounded-md"
         >
           Bog’lanish
         </Link>
       </div>
 
-      {/* Tools Section */}
+      {/* Asbob-uskunalar */}
       <div className="AboutMe mb-16">
         <h1 className="text-3xl font-bold border-b-4 border-green-400 inline-block pb-2">
           Asbob-uskunalar
         </h1>
         <div className="grid grid-cols-4 sm:grid-cols-4 md:grid-cols-8 gap-6 mt-6 text-center">
-          {tools.map((tool) => (
+          {tools?.map((tool) => (
             <div
               key={tool.id}
               className="p-4 bg-gray-800 rounded-lg hover:bg-gray-700 transition transform hover:scale-110"
             >
-              <Image
-                src={tool.image_url}
-                alt={tool.tool_name}
-                width={64}
-                height={64}
-                className="mx-auto"
-              />
+              {tool.image_url ? (
+                <Image
+                  src={tool.image_url}
+                  alt={tool.tool_name}
+                  width={64}
+                  height={64}
+                  className="mx-auto rounded-2xl"
+                  unoptimized={tool.image_url.startsWith("data:image/")}
+                />
+              ) : (
+                <Image
+                  src="/fallback-image.png"
+                  alt="No Image"
+                  width={64}
+                  height={64}
+                  className="mx-auto rounded-2xl"
+                />
+              )}
               <p className="mt-2 text-gray-300">{tool.tool_name}</p>
             </div>
           ))}
         </div>
 
-        {/* Add Tool Form */}
         <div className="mt-8 p-6 bg-gray-800 rounded-lg">
           <h2 className="text-2xl font-bold mb-4">Yangi Tool qo‘shish</h2>
           <input
@@ -133,6 +144,7 @@ const About = () => {
               width={64}
               height={64}
               className="mb-3"
+              unoptimized={true}
             />
           )}
           <button
@@ -144,7 +156,6 @@ const About = () => {
         </div>
       </div>
 
-      {/* What I Can Do Section */}
       <div className="AboutMe mb-16">
         <h1 className="text-3xl font-bold border-b-4 border-green-400 inline-block pb-2">
           Men nimalar qila olaman
