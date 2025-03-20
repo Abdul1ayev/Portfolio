@@ -1,8 +1,8 @@
 "use client";
-import { createClient } from "@/supabase/client";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
+import { createClient } from "@/supabase/client";
 
 type Tools = {
   id: string;
@@ -11,9 +11,9 @@ type Tools = {
 };
 
 const About = () => {
+  const supabase = createClient()
   const [tools, setTools] = useState<Tools[]>([]);
   const [newTool, setNewTool] = useState({ tool_name: "", image_url: "" });
-  const supabase = createClient();
 
   useEffect(() => {
     fetchTools();
@@ -67,7 +67,7 @@ const About = () => {
   };
 
   return (
-    <div className="w-full min-h-screen  text-white  p-6 md:pb-18 pb-4 bg-black">
+    <div className="w-full min-h-screen  text-white md:pr-12 pt-6 pr-6 md:pb-18 pb-4 bg-black">
       <div className="mb-10">
         <h1 className="text-3xl font-bold border-b-4 border-green-400 inline-block pb-2">
           Men haqimda
