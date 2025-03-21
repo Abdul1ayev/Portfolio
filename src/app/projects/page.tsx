@@ -106,36 +106,113 @@ const Page = () => {
         onClose={() => setShowModal(false)}
         customStyles={{
           background: "#111",
-          padding: "20px",
+          padding: "25px",
           borderRadius: "10px",
+          boxShadow: "0px 0px 10px #39FF14",
+          textAlign: "center",
         }}
-        width={400}
-        height={550}
+        width={360}
+        height={630}
+        className="fixed inset-0 flex items-center justify-center md:p-6"
       >
-        <h2 className="text-[#39FF14] text-xl font-bold mb-4">
-          Loyiha qo‘shish
-        </h2>
-        <input type="text" placeholder="Sarlavha" className="neon-input" />
-        <textarea placeholder="Tavsif" className="neon-input" />
-        <input type="text" placeholder="Kategoriya" className="neon-input" />
-        <select className="neon-input">
-          <option value="">Holatni tanlang</option>
-          <option value="Yuqori">Yuqori</option>
-          <option value="Past">Past</option>
-          <option value="Boshqa">Boshqa</option>
-        </select>
-        <input type="text" placeholder="Teglar" className="neon-input" />
-        <input type="text" placeholder="Loyiha URL" className="neon-input" />
-        <input type="file" accept="image/*" className="neon-input" />
-        <button
-          onClick={() => setShowModal(false)}
-          className="neon-btn bg-red-500"
-        >
-          Bekor qilish
-        </button>
-        <button onClick={handleAddProject} className="neon-btn">
-          Qo‘shish
-        </button>
+        <div className="bg-[#111] w-full max-w-[420px] h-auto md:max-h-[630px] rounded-lg shadow-lg p-6">
+          <h2 className="text-[#39FF14] text-2xl font-bold mb-5 uppercase">
+            Loyiha qo‘shish 🚀
+          </h2>
+
+          <div className="flex flex-col gap-3">
+            <input
+              type="text"
+              placeholder="Sarlavha"
+              className="neon-input"
+              value={newProject.title || ""}
+              onChange={(e) =>
+                setNewProject({ ...newProject, title: e.target.value })
+              }
+            />
+
+            <textarea
+              placeholder="Tavsif"
+              className="neon-input h-20 resize-none"
+              value={newProject.description || ""}
+              onChange={(e) =>
+                setNewProject({ ...newProject, description: e.target.value })
+              }
+            />
+
+            <input
+              type="text"
+              placeholder="Kategoriya"
+              className="neon-input"
+              value={newProject.category || ""}
+              onChange={(e) =>
+                setNewProject({ ...newProject, category: e.target.value })
+              }
+            />
+
+            <select
+              className="neon-input"
+              value={newProject.status || ""}
+              onChange={(e) =>
+                setNewProject({
+                  ...newProject,
+                  status: e.target.value as Project["status"],
+                })
+              }
+            >
+              <option value="">Holatni tanlang</option>
+              <option value="Yuqori">Yuqori</option>
+              <option value="Past">Past</option>
+              <option value="Boshqa">Boshqa</option>
+            </select>
+
+            <input
+              type="text"
+              placeholder="Teglar (vergul bilan ajrating)"
+              className="neon-input"
+              value={newProject.tags?.join(", ") || ""}
+              onChange={(e) =>
+                setNewProject({
+                  ...newProject,
+                  tags: e.target.value.split(",").map((tag) => tag.trim()),
+                })
+              }
+            />
+
+            <input
+              type="text"
+              placeholder="Loyiha URL"
+              className="neon-input"
+              value={newProject.project_url || ""}
+              onChange={(e) =>
+                setNewProject({ ...newProject, project_url: e.target.value })
+              }
+            />
+
+            <input
+              type="file"
+              accept="image/*"
+              className="neon-input file:bg-[#39FF14] file:border-none file:px-4 file:py-2 file:rounded-md file:text-black file:font-semibold cursor-pointer"
+              onChange={handleImageUpload}
+            />
+          </div>
+
+          <div className="flex justify-between mt-6">
+            <button
+              onClick={() => setShowModal(false)}
+              className="neon-btn bg-red-600 hover:bg-red-700"
+            >
+              Bekor qilish
+            </button>
+
+            <button
+              onClick={handleAddProject}
+              className="neon-btn bg-[#39FF14] hover:bg-[#2EDC12]"
+            >
+              Qo‘shish
+            </button>
+          </div>
+        </div>
       </Rodal>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -152,11 +229,11 @@ const Page = () => {
               key={project.id}
               className="bg-[#0A0A0A] p-6 rounded-xl border-2 border-[#39FF14] shadow-lg hover:shadow-[0_0_25px_#39FF14] transition-all duration-300 "
             >
-              <img
-                width={500}
-                height={500}
+              <Image
                 src={project.image_url}
                 alt={project.title}
+                width={500}
+                height={500}
                 className="w-full h-52 object-cover rounded-lg shadow-[0_0_20px_#39FF14]"
               />
 

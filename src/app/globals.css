@@ -1,5 +1,44 @@
 @import "tailwindcss";
 
 .root {
-    overflow-y: hidden;
+  overflow-y: hidden;
+}
+.neon-input {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #39ff14;
+  border-radius: 6px;
+  background-color: #111;
+  color: #39ff14;
+  font-size: 16px;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.neon-input:focus {
+  box-shadow: 0 0 10px #39ff14;
+  border-color: #2edc12;
+}
+
+.neon-input[type="file"] {
+  padding: 8px;
+  cursor: pointer;
+  border: none;
+}
+
+.neon-btn {
+  padding: 12px 20px;
+  border: 2px solid #39ff14;
+  background-color: black;
+  color: #39ff14;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 6px;
+  transition: all 0.3s ease-in-out;
+}
+
+.neon-btn:hover {
+  background-color: #39ff14;
+  color: black;
+  box-shadow: 0 0 15px #39ff14;
 }
