@@ -37,11 +37,11 @@ const App: React.FC = () => {
   if (!isClient) return null;
 
   return (
-    <div className="h-full flex flex-col bg-black  text-white p-4 items-center">
+    <div className="h-full flex flex-col bg-[#000000] text-[#39FF14] p-4 items-center">
       <div
-        className={`fixed top-0 left-0 w-72 h-full bg-black p-6 transition-transform duration-300 shadow-xl ${
+        className={`fixed top-0 left-0 w-72 h-full bg-[#000000] p-6 transition-transform duration-300 shadow-xl ${
           isOpen ? "translate-x-0" : "-translate-x-full"
-        } md:translate-x-0 md:relative md:w-80`}
+        } md:translate-x-0 md:relative md:w-80 border-r-2 border-[#39FF14]`}
       >
         <div className="flex flex-col items-center text-center">
           <Image
@@ -49,16 +49,18 @@ const App: React.FC = () => {
             alt="logo"
             width={150}
             height={150}
-            className="rounded-full border-2 border-b-gray-500 border-t-gray-500 border-dashed border-r-white border-l-white shadow-md"
+            className="rounded-full border-dashed opacity-90 border-2 border-[#39FF14] shadow-md"
           />
-          <h2 className="text-lg font-semibold mt-4">Abdullayev S.</h2>
+          <h2 className="text-lg font-semibold mt-4 text-[#39FF14]">
+            Abdullayev S.
+          </h2>
 
           <div className="flex flex-wrap gap-2 mt-3 justify-center">
             {["Veb dasturchi", "Dizayner", "Junior", "AI bot", "Web3"].map(
               (tag) => (
                 <span
                   key={tag}
-                  className="bg-gray-800 hover:bg-gray-700 cursor-pointer px-3 py-1 text-xs rounded-lg text-gray-300"
+                  className="bg-[#111111] hover:bg-[#39FF14]  cursor-pointer px-3 py-1 text-xs rounded-lg text-[#39FF14] hover:text-[#111111] border border-[#39FF14] hover:border-[#111111] transition-all duration-300"
                 >
                   {tag}
                 </span>
@@ -67,24 +69,24 @@ const App: React.FC = () => {
           </div>
         </div>
 
-        <div className="mt-6 space-y-4">
+        <div className="mt-6 space-y-4 ">
           <ContactItem
-            icon={<FaEnvelope className="text-red-400" />}
+            icon={<FaEnvelope className="text-[#39FF14]" />}
             title="E-pochta"
             info="abdullayev@gmail.com"
           />
           <ContactItem
-            icon={<FaGithub className="text-gray-300" />}
+            icon={<FaGithub className="text-[#39FF14]" />}
             title="Github"
             info="github.com/abdullayev"
           />
           <ContactItem
-            icon={<FaTelegram className="text-blue-400" />}
+            icon={<FaTelegram className="text-[#39FF14]" />}
             title="Telegram"
             info="t.me/abdullayev"
           />
           <ContactItem
-            icon={<FaPhone className="text-green-400" />}
+            icon={<FaPhone className="text-[#39FF14]" />}
             title="Telefon"
             info="+998 (93) 624-97-08"
           />
@@ -100,11 +102,15 @@ const ContactItem: React.FC<{
   info: string;
 }> = ({ icon, title, info }) => {
   return (
-    <div className="flex items-center gap-3 cursor-pointer p-3 bg-gray-800 rounded-lg shadow-sm hover:bg-gray-700 transition">
+    <div className="flex items-center gap-3 cursor-pointer p-3 bg-[#111111] rounded-lg shadow-md border border-[#39FF14] transition duration-300 ">
       <div className="text-lg">{icon}</div>
       <div>
-        <p className="text-sm text-gray-400">{title}</p>
-        <p className="text-md font-medium">{info}</p>
+        <p className="text-sm text-[#39FF14] opacity-80 transition duration-300 ">
+          {title}
+        </p>
+        <p className="text-md font-medium text-[#39FF14] transition duration-300 ">
+          {info}
+        </p>
       </div>
     </div>
   );

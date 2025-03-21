@@ -43,22 +43,14 @@ const Page = () => {
   };
 
   return (
-    <div
-      className="flex items-center justify-center min-h-screen p-4 "
-      style={{
-        backgroundImage: "url('/Home.svg')",
-      }}
-    >
-      <section className="border-gray-500  border opacity-95 p-6 rounded-2xl shadow-xl w-full max-w-md">
-        <h1 className="text-2xl font-semibold text-center text-gray-500 mb-4">
+    <div className="flex items-center justify-center min-h-screen bg-[#000000] p-4">
+      <section className="border-[#39FF14] border p-6 rounded-2xl shadow-xl w-full max-w-md">
+        <h1 className="text-2xl font-semibold text-center text-[#39FF14] mb-4">
           Contact Us
         </h1>
         <form className="space-y-4" onSubmit={handleSubmit}>
           <div>
-            <label
-              htmlFor="name"
-              className="block text-sm font-medium text-gray-500"
-            >
+            <label htmlFor="name" className="block text-sm font-medium text-[#39FF14]">
               Name
             </label>
             <input
@@ -69,14 +61,11 @@ const Page = () => {
               value={formData.name}
               onChange={handleChange}
               required
-              className="w-full mt-1 p-2 border text-gray-500 rounded-md border-gray-500 focus:outline-none focus:border-gray-500"
+              className="w-full mt-1 p-2 border text-[#39FF14] bg-[#000000] rounded-md border-[#39FF14] focus:outline-none focus:border-[#39FF14]"
             />
           </div>
           <div>
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-gray-500"
-            >
+            <label htmlFor="email" className="block text-sm font-medium text-[#39FF14]">
               Email
             </label>
             <input
@@ -87,14 +76,11 @@ const Page = () => {
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full mt-1 p-2 border text-gray-500 rounded-md border-gray-500 focus:outline-none focus:border-gray-500"
+              className="w-full mt-1 p-2 border text-[#39FF14] bg-[#000000] rounded-md border-[#39FF14] focus:outline-none focus:border-[#39FF14]"
             />
           </div>
           <div>
-            <label
-              htmlFor="message"
-              className="block text-sm font-medium text-gray-500"
-            >
+            <label htmlFor="message" className="block text-sm font-medium text-[#39FF14]">
               Message
             </label>
             <textarea
@@ -104,13 +90,13 @@ const Page = () => {
               value={formData.message}
               onChange={handleChange}
               required
-              className="w-full mt-1 p-2 border text-gray-500 rounded-md border-gray-500 focus:outline-none focus:border-gray-500"
+              className="w-full mt-1 p-2 border text-[#39FF14] bg-[#000000] rounded-md border-[#39FF14] focus:outline-none focus:border-[#39FF14]"
               rows={4}
             ></textarea>
           </div>
           <button
             type="submit"
-            className="w-1/2 mx-auto block text-gray-500 border hover:text-gray-700 py-2 rounded-md  transition duration-300"
+            className="w-full bg-[#39FF14] text-[#000000] py-2 rounded-md hover:bg-[#2ecc71] transition"
           >
             Send Message
           </button>

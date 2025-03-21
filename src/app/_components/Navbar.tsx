@@ -7,17 +7,19 @@ import Link from "next/link";
 
 const Navbar = () => {
   return (
-    <nav className="w-full border-b bg-black text-gray-300 px-6 py-4 shadow-md">
+    <nav className="w-full border-b bg-[#000000] text-[#39FF14] px-6 py-4 shadow-md">
       <div className="w-full mx-auto flex items-center justify-between">
         <Link href="/" className="flex items-center space-x-2">
           <Image
             width={45}
             height={45}
-            className="rounded-full border border-gray-500 shadow-md hover:scale-105 transition-transform"
+            className="rounded-full border border-[#39FF14] shadow-md hover:scale-105 transition-transform"
             src="/Logo.jpg"
             alt="logo"
           />
-          <span className="text-lg font-semibold ">Abdullayev S.</span>
+          <span className="text-lg font-semibold text-[#39FF14]">
+            Abdullayev S.
+          </span>
         </Link>
 
         <ul className="hidden md:flex space-x-6 text-base">
@@ -30,7 +32,7 @@ const Navbar = () => {
             <li key={index}>
               <Link
                 href={item.path}
-                className="cursor-pointer border-b-2 border-transparent hover:border-emerald-500 hover:text-white transition-all duration-300 pb-1"
+                className="cursor-pointer border-b-2 border-transparent hover:border-[#39FF14] hover:text-white transition-all duration-300 pb-1"
               >
                 {item.name}
               </Link>
@@ -43,11 +45,11 @@ const Navbar = () => {
             href="https://github.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white text-2xl hover:text-gray-400 transition-all duration-300"
+            className="text-[#39FF14] text-2xl hover:text-white transition-all duration-300"
           >
             <FaGithub />
           </Link>
-          <button className="md:hidden text-white text-2xl hover:text-gray-400 transition-all duration-300">
+          <button className="md:hidden text-[#39FF14] text-2xl hover:text-white transition-all duration-300">
             <FaBars />
           </button>
         </div>
