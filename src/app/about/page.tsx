@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { createClient } from "@/supabase/client";
 
 type Tools = {
@@ -15,18 +15,18 @@ const About = () => {
   const [tools, setTools] = useState<Tools[]>([]);
   const [newTool, setNewTool] = useState({ tool_name: "", image_url: "" });
 
-  useEffect(() => {
-    fetchTools();
-  }, []);
-
-  const fetchTools = async () => {
+  const fetchTools = useCallback(async () => {
     const { data, error } = await supabase.from("tools").select("*");
     if (error) {
       console.error("Error fetching tools:", error);
     } else {
       setTools(data || []);
     }
-  };
+  }, [supabase]);
+
+  useEffect(() => {
+    fetchTools();
+  }, [fetchTools]);
 
   const handleImageUpload = async (
     event: React.ChangeEvent<HTMLInputElement>

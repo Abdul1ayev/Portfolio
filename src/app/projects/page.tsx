@@ -56,7 +56,7 @@ const Page = () => {
     }
 
     const filePath = `images/${Date.now()}-${imageFile.name}`;
-    const { data: uploadData, error: uploadError } = await supabase.storage
+    const { error: uploadError } = await supabase.storage
       .from("projects")
       .upload(filePath, imageFile);
 
