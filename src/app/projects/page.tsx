@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Rodal from "rodal";
+import { motion } from "framer-motion";
 import "rodal/lib/rodal.css";
 
 const supabase = createClient();
@@ -87,7 +88,7 @@ const Page = () => {
   };
 
   return (
-    <div className="bg-black min-h-screen flex flex-col p-6 text-[#39FF14]">
+    <motion.div className="bg-black min-h-screen flex flex-col p-6 text-[#39FF14]">
       <header className="w-full py-6 text-center text-4xl font-bold tracking-widest neon-glow">
         LOYIHALAR
       </header>
@@ -215,7 +216,7 @@ const Page = () => {
         </div>
       </Rodal>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {projects.map((project) => {
           const statusColor =
             project.status === "Yuqori"
@@ -266,8 +267,8 @@ const Page = () => {
             </div>
           );
         })}
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 
