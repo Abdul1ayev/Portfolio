@@ -11,7 +11,7 @@ const Page = () => {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="h-full flex flex-col justify-center items-center text-center px-4 bg-[#000000]"
+      className="flex flex-col min-h-screen justify-center items-center text-center px-4 bg-[#000000]"
     >
       <h1 className="text-[#39FF14] text-4xl sm:text-5xl font-bold leading-tight">
         Salom, men <br />
