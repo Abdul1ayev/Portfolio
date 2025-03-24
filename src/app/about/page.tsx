@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useCallback, useEffect, useState } from "react";
 import { createClient } from "@/supabase/client";
+import { motion } from "framer-motion";
 
 type Tools = {
   id: string;
@@ -28,8 +29,18 @@ const About = () => {
   }, [fetchTools]);
 
   return (
-    <div className="w-full min-h-screen text-[#39FF14] p-6 bg-[#000000]">
-      <div className="mb-10">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      className="w-full min-h-screen text-[#39FF14] p-6 bg-[#000000]"
+    >
+      <motion.div
+        initial={{ y: -50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        className="mb-10"
+      >
         <h1 className="text-3xl font-bold border-b-4 border-[#39FF14] inline-block pb-2">
           Men haqimda
         </h1>
@@ -43,16 +54,29 @@ const About = () => {
         >
           Bog’lanish
         </Link>
-      </div>
+      </motion.div>
 
-      <div className="mt-10">
+      <motion.div
+        initial={{ y: 50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.4 }}
+        className="mt-10"
+      >
         <h1 className="text-3xl font-bold border-b-4 border-[#39FF14] inline-block pb-2">
           Asbob-uskunalar
         </h1>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 mt-6 text-center">
-          {tools.map((tool) => (
-            <div
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3, delay: 0.3 }}
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 mt-6 text-center"
+        >
+          {tools.map((tool, index) => (
+            <motion.div
               key={tool.id}
+              initial={{ opacity: 0, y: 25 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 * index }}
               className="p-4 bg-[#121212] rounded-lg hover:bg-[#1E1E1E] transition transform hover:scale-105 border border-[#39FF14]"
             >
               <Image
@@ -63,11 +87,11 @@ const About = () => {
                 className="mx-auto p-2 rounded-2xl border border-[#39FF14]"
               />
               <p className="mt-2 text-[#39FF14]">{tool.tool_name}</p>
-            </div>
+            </motion.div>
           ))}
-        </div>
-      </div>
-    </div>
+        </motion.div>
+      </motion.div>
+    </motion.div>
   );
 };
 

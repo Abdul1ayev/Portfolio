@@ -33,13 +33,28 @@ const Page = () => {
   };
 
   return (
-    <motion.div className="bg-black min-h-screen flex flex-col p-6 text-[#39FF14]">
-      <header className="w-full py-6 text-center text-4xl font-bold tracking-widest neon-glow">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.2 }}
+      className="bg-black min-h-screen flex flex-col p-6 text-[#39FF14]"
+    >
+      <motion.header
+        initial={{ y: -50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.3, delay: 0.2 }}
+        className="w-full py-6 text-center text-4xl font-bold tracking-widest neon-glow"
+      >
         LOYIHALAR
-      </header>
+      </motion.header>
 
-      <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {projects.map((project) => {
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.4 }}
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+      >
+        {projects.map((project, index) => {
           const statusColor =
             project.status === "Yuqori"
               ? "bg-green-500 text-black"
@@ -48,9 +63,12 @@ const Page = () => {
               : "bg-gray-500 text-white";
 
           return (
-            <div
+            <motion.div
               key={project.id}
-              className="bg-[#0A0A0A] p-6 rounded-xl border-2 border-[#39FF14] shadow-lg hover:shadow-[0_0_25px_#39FF14] transition-all duration-300 "
+              initial={{ opacity: 0, y: 0 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 * index }}
+              className="bg-[#0A0A0A] p-6 rounded-xl border-2 border-[#39FF14] shadow-lg hover:shadow-[0_0_25px_#39FF14] transition-all duration-300"
             >
               <Image
                 src={project.image_url}
@@ -86,7 +104,7 @@ const Page = () => {
               >
                 Loyihani ko‘rish
               </Link>
-            </div>
+            </motion.div>
           );
         })}
       </motion.div>

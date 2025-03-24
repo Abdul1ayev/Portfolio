@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
+import { motion } from "framer-motion";
 
 const Page = () => {
   const [formData, setFormData] = useState({
@@ -24,14 +25,14 @@ const Page = () => {
 
     emailjs
       .send(
-        "service_ewdtjhu",
-        "template_pnmkrh8",
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
         {
           user_name: formData.name,
           user_email: formData.email,
           message: formData.message,
         },
-        "MCayC2nd7r9e7awd-"
+        process.env.NEXT_PUBLIC_EMAILJS_USER_ID!
       )
       .then(() => {
         alert("Message sent successfully!");
@@ -43,14 +44,31 @@ const Page = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-[#000000] p-4">
-      <section className="border-[#39FF14] border p-6 rounded-2xl shadow-xl w-full max-w-md">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      className="flex items-start pt-12 md:p-0 md:items-center justify-center min-h-screen bg-[#000000] p-4 "
+    >
+      <motion.section
+        initial={{ y: -50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        className="border-[#39FF14] border p-6 rounded-2xl shadow-xl w-full max-w-md"
+      >
         <h1 className="text-2xl font-semibold text-center text-[#39FF14] mb-4">
           Contact Us
         </h1>
         <form className="space-y-4" onSubmit={handleSubmit}>
-          <div>
-            <label htmlFor="name" className="block text-sm font-medium text-[#39FF14]">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
+            <label
+              htmlFor="name"
+              className="block text-sm font-medium text-[#39FF14]"
+            >
               Name
             </label>
             <input
@@ -63,9 +81,16 @@ const Page = () => {
               required
               className="w-full mt-1 p-2 border text-[#39FF14] bg-[#000000] rounded-md border-[#39FF14] focus:outline-none focus:border-[#39FF14]"
             />
-          </div>
-          <div>
-            <label htmlFor="email" className="block text-sm font-medium text-[#39FF14]">
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+          >
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-[#39FF14]"
+            >
               Email
             </label>
             <input
@@ -78,9 +103,16 @@ const Page = () => {
               required
               className="w-full mt-1 p-2 border text-[#39FF14] bg-[#000000] rounded-md border-[#39FF14] focus:outline-none focus:border-[#39FF14]"
             />
-          </div>
-          <div>
-            <label htmlFor="message" className="block text-sm font-medium text-[#39FF14]">
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.8 }}
+          >
+            <label
+              htmlFor="message"
+              className="block text-sm font-medium text-[#39FF14]"
+            >
               Message
             </label>
             <textarea
@@ -93,16 +125,22 @@ const Page = () => {
               className="w-full mt-1 p-2 border text-[#39FF14] bg-[#000000] rounded-md border-[#39FF14] focus:outline-none focus:border-[#39FF14]"
               rows={4}
             ></textarea>
-          </div>
-          <button
-            type="submit"
-            className="w-full bg-[#39FF14] text-[#000000] py-2 rounded-md hover:bg-[#2ecc71] transition"
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 1 }}
           >
-            Send Message
-          </button>
+            <button
+              type="submit"
+              className="w-full bg-[#39FF14] text-[#000000] py-2 rounded-md hover:bg-[#2ecc71] transition"
+            >
+              Send Message
+            </button>
+          </motion.div>
         </form>
-      </section>
-    </div>
+      </motion.section>
+    </motion.div>
   );
 };
 
