@@ -42,3 +42,10 @@
   color: black;
   box-shadow: 0 0 15px #39ff14;
 }
+link[rel="icon"] {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  overflow: hidden;
+  object-fit: cover;
+}
