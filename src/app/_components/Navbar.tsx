@@ -23,7 +23,6 @@ const Navbar = () => {
           </span>
         </Link>
 
-        {/* Desktop Menu */}
         <ul className="hidden md:flex space-x-6 text-base">
           {[
             { name: "Bosh sahifa", path: "/" },
@@ -42,7 +41,6 @@ const Navbar = () => {
           ))}
         </ul>
 
-        {/* Mobile Menu Button */}
         <div className="flex items-center space-x-4">
           <Link
             href="https://github.com/"
@@ -61,7 +59,6 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       {isOpen && (
         <ul className="md:hidden flex flex-col items-center space-y-4 bg-[#000000] text-[#39FF14] py-4">
           {[
