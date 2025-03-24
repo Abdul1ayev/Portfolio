@@ -1,7 +1,7 @@
 "use client";
+import { createClient } from "@/supabase/client";
 import Image from "next/image";
-import { useEffect, useState } from "react";
-const { createClient } = require("@/supabase/client");
+import { useState } from "react";
 
 const supabase = createClient();
 type Project = {
