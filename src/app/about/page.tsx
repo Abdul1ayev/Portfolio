@@ -110,7 +110,7 @@ const About = () => {
             <div>
               <p className="text-white text-2xl">Dizayn</p>
               <p className="text-gray-300">
-              Kuchli dizayn va kichik detallargacha e’tibor berish 
+                Kuchli dizayn va kichik detallargacha e’tibor berish
               </p>
             </div>
           </div>
@@ -119,7 +119,7 @@ const About = () => {
             <div>
               <p className="text-white text-2xl">Sifat</p>
               <p className="text-gray-300">
-              Yuqori darajada saytlarni sifatli ishlab chiqish
+                Yuqori darajada saytlarni sifatli ishlab chiqish
               </p>
             </div>
           </div>
