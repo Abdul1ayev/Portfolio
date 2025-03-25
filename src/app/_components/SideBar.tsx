@@ -69,11 +69,11 @@ const App: React.FC = () => {
           </div>
         </div>
 
-        <div className="mt-6 space-y-4 ">
+        <div className="mt-6 space-y-4 w-full ">
           <ContactItem
             icon={<FaEnvelope className="text-[#39FF14]" />}
             title="E-pochta"
-            info="samirabdullayev2009@gmail.com"
+            info="abdullayev@gmail.com"
           />
           <ContactItem
             icon={<FaGithub className="text-[#39FF14]" />}
@@ -83,7 +83,7 @@ const App: React.FC = () => {
           <ContactItem
             icon={<FaTelegram className="text-[#39FF14]" />}
             title="Telegram"
-            info="t.me/abdullayev"
+            info="t.me/Abdul1aev_s"
           />
           <ContactItem
             icon={<FaPhone className="text-[#39FF14]" />}

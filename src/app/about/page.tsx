@@ -77,7 +77,7 @@ const About = () => {
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 * index }}
-              className="p-4 bg-[#121212] rounded-lg hover:bg-[#1E1E1E] transition transform hover:scale-105 border border-[#39FF14]"
+              className="p-4 bg-[#121212] rounded-lg hover:bg-[#1E1E1E] transition transform hover:scale-101 border border-[#39FF14]"
             >
               <Image
                 src={tool.image_url || "/fallback-image.png"}
@@ -91,6 +91,49 @@ const About = () => {
           ))}
         </motion.div>
       </motion.div>
+      <div className="mt-[64] w-full ">
+        <h1 className="text-3xl font-bold border-b-4 border-[#39FF14] inline-block pb-2">
+          Asbob-uskunalar
+        </h1>
+        <div className="grid md:grid-cols-2 md:gap-5 mt-6 grid-cols-1 gap-4">
+          <div className="w-full p-6  rounded-2xl gap-[15] bg-[#121212] hover:bg-[#1E1E1E] transition transform hover:scale-101 border-[#39FF14] border-2 flex items-center">
+            <Image src={"/seo.svg"} height={64} width={64} alt=""></Image>
+            <div>
+              <p className="text-white text-2xl">Seo</p>
+              <p className="text-gray-300">
+                Qidiruv tizimining natijalarida sayt reytingini yaxshilash
+              </p>
+            </div>
+          </div>
+          <div className="w-full p-5  rounded-2xl gap-[14] bg-[#121212] hover:bg-[#1E1E1E] transition transform hover:scale-101 border-[#39FF14] border-2 flex items-center">
+            <Image src={"/seo.svg"} height={64} width={64} alt=""></Image>
+            <div>
+              <p className="text-white text-2xl">Seo</p>
+              <p className="text-gray-300">
+                Qidiruv tizimining natijalarida sayt reytingini yaxshilash
+              </p>
+            </div>
+          </div>
+          <div className="w-full p-5 rounded-2xl gap-[14] bg-[#121212] hover:bg-[#1E1E1E] transition transform hover:scale-101 border-[#39FF14] border-2 flex items-center">
+            <Image src={"/seo.svg"} height={64} width={64} alt=""></Image>
+            <div>
+              <p className="text-white text-2xl">Seo</p>
+              <p className="text-gray-300">
+                Qidiruv tizimining natijalarida sayt reytingini yaxshilash
+              </p>
+            </div>
+          </div>
+          <div className="w-full p-5 rounded-2xl gap-[14] bg-[#121212] hover:bg-[#1E1E1E] transition transform hover:scale-101 border-[#39FF14] border-2 flex items-center">
+            <Image src={"/seo.svg"} height={64} width={64} alt=""></Image>
+            <div>
+              <p className="text-white text-2xl">Seo</p>
+              <p className="text-gray-300">
+                Qidiruv tizimining natijalarida sayt reytingini yaxshilash
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </motion.div>
   );
 };
