@@ -17,8 +17,9 @@ const Page = () => {
     email: "",
     message: "",
   });
-  const [isSubmitting] = useState(false);
-
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  console.log(setIsSubmitting);
+  
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
