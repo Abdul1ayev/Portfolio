@@ -33,7 +33,7 @@ const About = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="w-full min-h-screen text-[#39FF14] p-6 bg-[#000000]"
+      className="w-full h-full text-[#39FF14] p-6 bg-[#000000]"
     >
       <motion.div
         initial={{ y: -50, opacity: 0 }}

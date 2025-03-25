@@ -73,12 +73,12 @@ const App: React.FC = () => {
           <ContactItem
             icon={<FaEnvelope className="text-[#39FF14]" />}
             title="E-pochta"
-            info="abdullayev@gmail.com"
+            info="samirabdullayev2009@gmail.com"
           />
           <ContactItem
             icon={<FaGithub className="text-[#39FF14]" />}
             title="Github"
-            info="github.com/abdullayev"
+            info="github.com/Abdul1ayev"
           />
           <ContactItem
             icon={<FaTelegram className="text-[#39FF14]" />}
