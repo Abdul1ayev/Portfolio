@@ -35,14 +35,14 @@ const Page = () => {
 
     try {
       await emailjs.send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        process.env.EMAILJS_SERVICE_ID!,
+        process.env.EMAILJS_TEMPLATE_ID!,
         {
           user_name: formData.name,
           user_email: formData.email,
           message: formData.message,
         },
-        process.env.NEXT_PUBLIC_EMAILJS_USER_ID!
+        process.env.EMAILJS_USER_ID!
       );
       alert("Message sent successfully!");
       setFormData({ name: "", email: "", message: "" });
