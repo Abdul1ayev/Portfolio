@@ -2,14 +2,12 @@
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import {
   FaEnvelope,
   FaGithub,
   FaLinkedin,
   FaMapMarkerAlt,
   FaPhone,
-  FaTelegram,
   FaTwitter,
 } from "react-icons/fa";
 
