@@ -29,30 +29,27 @@ const Page = () => {
     }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
 
-    try {
-      await emailjs.send(
-        process.env.EMAILJS_SERVICE_ID!,
-        process.env.EMAILJS_TEMPLATE_ID!,
+    emailjs
+      .send(
+        "service_ewdtjhu",
+        "template_pnmkrh8",
         {
           user_name: formData.name,
           user_email: formData.email,
           message: formData.message,
         },
-        process.env.EMAILJS_USER_ID!
-      );
-      alert("Message sent successfully!");
-      setFormData({ name: "", email: "", message: "" });
-    } catch (err) {
-      alert("Failed to send the message. Please try again later.");
-      console.log(err);
-      
-    } finally {
-      setIsSubmitting(false);
-    }
+        "MCayC2nd7r9e7awd-"
+      )
+      .then(() => {
+        alert("Message sent successfully!");
+        setFormData({ name: "", email: "", message: "" });
+      })
+      .catch(() => {
+        alert("Failed to send the message. Please try again later.");
+      });
   };
 
   return (
