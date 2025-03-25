@@ -42,7 +42,7 @@ const Page = () => {
           user_email: formData.email,
           message: formData.message,
         },
-        "MCayC2nd7r9e7awd-"
+        "MCayC2nd7r9e7awd"
       )
       .then(() => {
         alert("Message sent successfully!");
