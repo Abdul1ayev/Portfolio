@@ -135,7 +135,7 @@ const Page = () => {
               className="mt-8 p-6 rounded-xl bg-black hover:scale-101 transition-all duration-300 border border-[#111111] hover:border-[#39FF14]"
             >
               <h3 className="text-xl font-semibold text-white mb-4">
-                Let's Connect
+                Let`s Connect
               </h3>
               <p className="text-gray-400 mb-4">
                 Have a project in mind or want to discuss potential
@@ -243,7 +243,7 @@ const Page = () => {
                   <textarea
                     id="message"
                     name="message"
-                    placeholder="Hello, I'd like to talk about..."
+                    placeholder="Hello, I`d like to talk about..."
                     value={formData.message}
                     onChange={handleChange}
                     required
