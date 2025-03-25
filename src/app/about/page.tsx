@@ -97,7 +97,7 @@ const About = () => {
         </h1>
         <div className="grid md:grid-cols-2 md:gap-5 mt-6 grid-cols-1 gap-4">
           <div className="w-full p-6  rounded-2xl gap-[15] bg-[#121212] hover:bg-[#1E1E1E] transition transform hover:scale-101 border-[#39FF14] border-2 flex items-center">
-            <Image src={"/seo.svg"} height={64} width={64} alt=""></Image>
+            <Image src={"/seo.svg"} height={50} width={50} alt=""></Image>
             <div>
               <p className="text-white text-2xl">Seo</p>
               <p className="text-gray-300">
@@ -106,29 +106,29 @@ const About = () => {
             </div>
           </div>
           <div className="w-full p-5  rounded-2xl gap-[14] bg-[#121212] hover:bg-[#1E1E1E] transition transform hover:scale-101 border-[#39FF14] border-2 flex items-center">
-            <Image src={"/seo.svg"} height={64} width={64} alt=""></Image>
+            <Image src={"/dizayn.svg"} height={50} width={50} alt=""></Image>
             <div>
-              <p className="text-white text-2xl">Seo</p>
+              <p className="text-white text-2xl">Dizayn</p>
               <p className="text-gray-300">
-                Qidiruv tizimining natijalarida sayt reytingini yaxshilash
+              Kuchli dizayn va kichik detallargacha e’tibor berish 
               </p>
             </div>
           </div>
           <div className="w-full p-5 rounded-2xl gap-[14] bg-[#121212] hover:bg-[#1E1E1E] transition transform hover:scale-101 border-[#39FF14] border-2 flex items-center">
-            <Image src={"/seo.svg"} height={64} width={64} alt=""></Image>
+            <Image src={"/sifat.svg"} height={50} width={50} alt=""></Image>
             <div>
-              <p className="text-white text-2xl">Seo</p>
+              <p className="text-white text-2xl">Sifat</p>
               <p className="text-gray-300">
-                Qidiruv tizimining natijalarida sayt reytingini yaxshilash
+              Yuqori darajada saytlarni sifatli ishlab chiqish
               </p>
             </div>
           </div>
           <div className="w-full p-5 rounded-2xl gap-[14] bg-[#121212] hover:bg-[#1E1E1E] transition transform hover:scale-101 border-[#39FF14] border-2 flex items-center">
-            <Image src={"/seo.svg"} height={64} width={64} alt=""></Image>
+            <Image src={"/time.svg"} height={50} width={50} alt=""></Image>
             <div>
-              <p className="text-white text-2xl">Seo</p>
+              <p className="text-white text-2xl">Tezkorlik</p>
               <p className="text-gray-300">
-                Qidiruv tizimining natijalarida sayt reytingini yaxshilash
+                Qisqa muddat ichida tezkor sayt ishlab chiqish
               </p>
             </div>
           </div>
