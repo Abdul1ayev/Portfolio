@@ -45,7 +45,7 @@ const About = () => {
           Men haqimda
         </h1>
         <p className="mt-4 text-white">
-          Men Badullayev Samir, 15 yoshdaman, Buxoro viloyati, Kogon shahrida
+          Men Abdullayev Samir, 15 yoshdaman, Buxoro viloyati, Kogon shahrida
           tug‘ilganman...
         </p>
         <Link
