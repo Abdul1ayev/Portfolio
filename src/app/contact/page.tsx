@@ -46,8 +46,10 @@ const Page = () => {
       );
       alert("Message sent successfully!");
       setFormData({ name: "", email: "", message: "" });
-    } catch (error) {
+    } catch (err) {
       alert("Failed to send the message. Please try again later.");
+      console.log(err);
+      
     } finally {
       setIsSubmitting(false);
     }
