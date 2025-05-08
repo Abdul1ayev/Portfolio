@@ -70,8 +70,8 @@ const Page = () => {
           className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10"
         >
           {[
-            { value: "3+", label: "Yillik tajriba" },
-            { value: "20+", label: "Loyihalar" },
+            { value: "1+", label: "Yillik tajriba" },
+            { value: "10+", label: "Loyihalar" },
             { value: "100%", label: "Qoniqish" },
             { value: "∞", label: "Ixtirochilik" },
           ].map((stat, index) => (
