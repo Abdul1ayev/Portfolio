@@ -51,7 +51,7 @@ const Page = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.6 }}
-          className="bg-black backdrop-blur-sm rounded-xl p-6 mb-8 border border-[#39ff14]  shadow-lg"
+          className="bg-black rounded-xl p-6 mb-8 border border-[#39ff14]  shadow-lg"
         >
           <p className="text-gray-300 text-lg sm:text-xl leading-relaxed">
             Frontend dasturchiman. Dizayndan kodga aylantirish, veb sahifalarni

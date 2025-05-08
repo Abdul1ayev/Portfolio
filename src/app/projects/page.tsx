@@ -127,7 +127,6 @@ const Page = () => {
         </p>
       </motion.header>
 
-      {/* Filters and Search */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -135,7 +134,7 @@ const Page = () => {
         className="mb-8"
       >
         <div className="flex flex-col md:flex-row gap-4 justify-between items-center mb-6">
-          <div className="relative w-full md:w-96">
+          <div className=" w-full md:w-96">
             <input
               type="text"
               placeholder="Loyihalarni qidirish..."
@@ -177,7 +176,7 @@ const Page = () => {
         </div>
 
         <div className="flex justify-between text-center w-full items-center mb-4">
-          <p className="text-white">
+          <p className="text-white mx-auto ">
             {filteredProjects.length} ta loyiha topildi
           </p>
         </div>
@@ -230,23 +229,17 @@ const Page = () => {
               whileHover={{ y: -5 }}
               className="bg-black p-6 rounded-xl border-2 border-[#39FF14]/75 hover:border-[#39FF14] transition-all duration-300 group"
             >
-              <div className="relative overflow-hidden rounded-lg mb-4 h-52">
-                <Image
-                  src={project.image_url}
-                  alt={project.title}
-                  width={500}
-                  height={500}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                  <span
-                    className={`px-3 py-1 rounded-full text-xs font-bold ${statusColor(
-                      project.status
-                    )}`}
-                  >
-                    {project.status}
-                  </span>
-                </div>
+              <div className="group overflow-hidden rounded-lg mb-4 h-52">
+               
+                  <Image
+                    src={project.image_url}
+                    alt={project.title}
+                    width={500}
+                    height={500}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                 
+                
               </div>
 
               <div className="flex justify-between items-start mb-2">
