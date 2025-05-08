@@ -2,7 +2,7 @@
 import { createClient } from "@/supabase/client";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Rodal from "rodal";
 import "rodal/lib/rodal.css";
@@ -34,13 +34,12 @@ const Page = () => {
     fetchProjects();
   }, []);
 
-  useEffect(() => {
-    filterProjects();
-  }, [projects, activeFilter, searchQuery], filterProjects);
-
   const fetchProjects = async () => {
     setIsLoading(true);
-    const { data, error } = await supabase.from("projects").select("*").order("created_at", { ascending: false });
+    const { data, error } = await supabase
+      .from("projects")
+      .select("*")
+      .order("created_at", { ascending: false });
     if (error) {
       console.error("Error fetching projects:", error);
     } else {
@@ -49,33 +48,37 @@ const Page = () => {
     setIsLoading(false);
   };
 
-  const filterProjects = () => {
+  const filterProjects = useCallback(() => {
     let result = [...projects];
-    
+
     // Filter by category
     if (activeFilter !== "Hammasi") {
-      result = result.filter(project => 
-        project.category === activeFilter || 
-        project.status === activeFilter
+      result = result.filter(
+        (project) =>
+          project.category === activeFilter || project.status === activeFilter
       );
     }
-    
 
+    // Filter by search query
     if (searchQuery) {
       const query = searchQuery.toLowerCase();
-      result = result.filter(project =>
-        project.title.toLowerCase().includes(query) ||
-        project.description?.toLowerCase().includes(query) ||
-        project.tags.some(tag => tag.toLowerCase().includes(query))
+      result = result.filter(
+        (project) =>
+          project.title.toLowerCase().includes(query) ||
+          project.description?.toLowerCase().includes(query) ||
+          project.tags.some((tag) => tag.toLowerCase().includes(query))
       );
     }
-    
-    setFilteredProjects(result);
-  };
 
+    setFilteredProjects(result);
+  }, [projects, activeFilter, searchQuery]);
+
+  useEffect(() => {
+    filterProjects();
+  }, [filterProjects]);
   const getUniqueCategories = () => {
-    const categories = projects.map(project => project.category);
-    const statuses = projects.map(project => project.status);
+    const categories = projects.map((project) => project.category);
+    const statuses = projects.map((project) => project.status);
     return ["Hammasi", ...new Set([...categories, ...statuses])];
   };
 
@@ -115,9 +118,12 @@ const Page = () => {
         transition={{ duration: 0.3, delay: 0.2 }}
         className="w-full py-6 text-center"
       >
-        <h1 className="text-4xl md:text-5xl font-bold tracking-widest neon-glow mb-2">LOYIHALARIM</h1>
+        <h1 className="text-4xl md:text-5xl font-bold tracking-widest neon-glow mb-2">
+          LOYIHALARIM
+        </h1>
         <p className="text-white max-w-2xl mx-auto">
-          Ishlab chiqilgan barcha loyihalar ro`yxati. Har bir loyiha haqida batafsil ma`lumot.
+          Ishlab chiqilgan barcha loyihalar ro`yxati. Har bir loyiha haqida
+          batafsil ma`lumot.
         </p>
       </motion.header>
 
@@ -153,18 +159,19 @@ const Page = () => {
 
           <div className="flex flex-wrap gap-2 justify-center w-full md:w-auto">
             {getUniqueCategories().map((category) => (
-             <button
-             key={category}
-             onClick={() => setActiveFilter(category)}
-             className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-500
-               ${activeFilter === category
-                 ? "bg-[#39FF14] text-black"
-                 : "bg-black text-white hover:bg-[#39FF14] hover:text-black"}
+              <button
+                key={category}
+                onClick={() => setActiveFilter(category)}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-500
+               ${
+                 activeFilter === category
+                   ? "bg-[#39FF14] text-black"
+                   : "bg-black text-white hover:bg-[#39FF14] hover:text-black"
+               }
              `}
-           >
-             {category}
-           </button>
-           
+              >
+                {category}
+              </button>
             ))}
           </div>
         </div>
@@ -173,7 +180,6 @@ const Page = () => {
           <p className="text-white">
             {filteredProjects.length} ta loyiha topildi
           </p>
-          
         </div>
       </motion.div>
 
@@ -200,9 +206,12 @@ const Page = () => {
               d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
             />
           </svg>
-          <h3 className="mt-2 text-lg font-medium text-white">Loyihalar topilmadi</h3>
+          <h3 className="mt-2 text-lg font-medium text-white">
+            Loyihalar topilmadi
+          </h3>
           <p className="mt-1 text-white">
-            Qidiruv bo`yicha hech narsa topilmadi yoki hali loyihalar qo`shilmagan.
+            Qidiruv bo`yicha hech narsa topilmadi yoki hali loyihalar
+            qo`shilmagan.
           </p>
         </motion.div>
       ) : (
@@ -230,7 +239,11 @@ const Page = () => {
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                  <span className={`px-3 py-1 rounded-full text-xs font-bold ${statusColor(project.status)}`}>
+                  <span
+                    className={`px-3 py-1 rounded-full text-xs font-bold ${statusColor(
+                      project.status
+                    )}`}
+                  >
                     {project.status}
                   </span>
                 </div>
@@ -266,17 +279,31 @@ const Page = () => {
                   target="_blank"
                   className="flex-1 text-center px-4 py-2 bg-[#39FF14] text-black font-semibold rounded-lg hover:bg-black hover:text-[#39FF14] border border-[#39FF14] transition-all duration-300 shadow-md flex items-center justify-center gap-2"
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
                     <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
-                    <path fillRule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clipRule="evenodd" />
+                    <path
+                      fillRule="evenodd"
+                      d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z"
+                      clipRule="evenodd"
+                    />
                   </svg>
                   Ko`rish
                 </Link>
-                <button 
+                <button
                   onClick={() => openModal(project)}
                   className="px-3 py-2 bg-black text-white rounded-lg  transition-colors border border-[#39ff14] hover:bg-[#39ff14] hover:border-white hover:text-white"
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
                     <path d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z" />
                   </svg>
                 </button>
@@ -299,15 +326,14 @@ const Page = () => {
             borderRadius: `12px`,
             padding: `20px`,
             maxWidth: `400px`,
-            width: `90%`
+            width: `90%`,
           }}
         >
           <div className="text-[#39FF14]">
             <div className="flex justify-between items-start mb-4">
               <h2 className="text-2xl font-bold">{selectedProject.title}</h2>
-              
             </div>
-            
+
             <div className="relative h-64 w-full mb-4 rounded-lg overflow-hidden">
               <Image
                 src={selectedProject.image_url}
@@ -316,18 +342,22 @@ const Page = () => {
                 className="object-cover"
               />
             </div>
-            
+
             <div className="mb-4">
-              <span className={`px-3 py-1 rounded-full text-xs font-bold ${statusColor(selectedProject.status)}`}>
+              <span
+                className={`px-3 py-1 rounded-full text-xs font-bold ${statusColor(
+                  selectedProject.status
+                )}`}
+              >
                 {selectedProject.status}
               </span>
               <span className="ml-2 text-white">
                 {new Date(selectedProject.created_at).toLocaleDateString()}
               </span>
             </div>
-            
+
             <p className="text-white mb-4">{selectedProject.description}</p>
-            
+
             <div className="flex flex-wrap  mb-4">
               {selectedProject.tags.map((tag) => (
                 <span
@@ -338,7 +368,7 @@ const Page = () => {
                 </span>
               ))}
             </div>
-            
+
             <Link
               href={selectedProject.project_url}
               target="_blank"
