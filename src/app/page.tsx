@@ -57,7 +57,7 @@ const Page = () => {
             Frontend dasturchiman. Dizayndan kodga aylantirish, veb sahifalarni
             jonlantirish va foydalanuvchilarni qiziqtiradigan interfeyslar yaratish
             — bu men uchun nafaqat ish, balki zavq ham. Ishlarimda minimalizm,
-            samaradorlik va foydalanuvchilar tajribasiga urg'u beraman.
+            samaradorlik va foydalanuvchilar tajribasiga urg`u beraman.
           </p>
         </motion.div>
 
@@ -97,7 +97,7 @@ const Page = () => {
         >
           <Link href="/projects" passHref>
             <button className="px-8 py-3 mx-auto bg-[#39FF14] text-black font-semibold rounded-lg hover:bg-transparent hover:text-[#39FF14] hover:border-[#39FF14] border border-transparent transition-all duration-300 cursor-pointer shadow-lg hover:shadow-[#39FF14]/20 flex items-center justify-center gap-2">
-              <span>Loyihalarimni ko'rish</span>
+              <span>Loyihalarimni ko`rish</span>
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" clipRule="evenodd" />
               </svg>
@@ -105,7 +105,7 @@ const Page = () => {
           </Link>
           <Link href="/contact" passHref>
             <button className="px-8 mx-auto py-3 bg-transparent text-[#39FF14] font-semibold rounded-lg hover:bg-[#39FF14] hover:text-black border border-[#39FF14] transition-all duration-300 cursor-pointer shadow-lg hover:shadow-[#39FF14]/20 flex items-center justify-center gap-2">
-              <span>Bog'lanish</span>
+              <span>Bog`lanish</span>
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                 <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
                 <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />

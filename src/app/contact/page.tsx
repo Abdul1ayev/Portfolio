@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
 import { motion } from "framer-motion";
-import { FaEnvelope, FaMapMarkerAlt, FaPhone, FaTwitter } from "react-icons/fa";
+import { FaEnvelope, FaMapMarkerAlt, FaPhone} from "react-icons/fa";
 import { FaGithub, FaLinkedin, FaTelegram } from "react-icons/fa";
 
 const socialLinks = [
@@ -81,7 +81,7 @@ const Page = () => {
           transition={{ duration: 0.5 }}
           className="text-3xl md:text-4xl font-bold text-center text-[#39FF14] mb-8"
         >
-          Bog'lanish
+          Bog`lanish
         </motion.h1>
 
         <div className="flex flex-col lg:flex-row gap-8 w-full">

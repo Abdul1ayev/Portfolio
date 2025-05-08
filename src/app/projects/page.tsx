@@ -36,7 +36,7 @@ const Page = () => {
 
   useEffect(() => {
     filterProjects();
-  }, [projects, activeFilter, searchQuery]);
+  }, [projects, activeFilter, searchQuery], filterProjects);
 
   const fetchProjects = async () => {
     setIsLoading(true);
@@ -117,7 +117,7 @@ const Page = () => {
       >
         <h1 className="text-4xl md:text-5xl font-bold tracking-widest neon-glow mb-2">LOYIHALARIM</h1>
         <p className="text-white max-w-2xl mx-auto">
-          Ishlab chiqilgan barcha loyihalar ro'yxati. Har bir loyiha haqida batafsil ma'lumot.
+          Ishlab chiqilgan barcha loyihalar ro`yxati. Har bir loyiha haqida batafsil ma`lumot.
         </p>
       </motion.header>
 
@@ -202,7 +202,7 @@ const Page = () => {
           </svg>
           <h3 className="mt-2 text-lg font-medium text-white">Loyihalar topilmadi</h3>
           <p className="mt-1 text-white">
-            Qidiruv bo'yicha hech narsa topilmadi yoki hali loyihalar qo'shilmagan.
+            Qidiruv bo`yicha hech narsa topilmadi yoki hali loyihalar qo`shilmagan.
           </p>
         </motion.div>
       ) : (
@@ -270,7 +270,7 @@ const Page = () => {
                     <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
                     <path fillRule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clipRule="evenodd" />
                   </svg>
-                  Ko'rish
+                  Ko`rish
                 </Link>
                 <button 
                   onClick={() => openModal(project)}
@@ -294,12 +294,12 @@ const Page = () => {
           duration={300}
           height={525}
           customStyles={{
-            backgroundColor: 'black',
-            border: '2px solid #39FF14',
-            borderRadius: '12px',
-            padding: '20px',
-            maxWidth: '400px',
-            width: '90%'
+            backgroundColor: `black`,
+            border: `2px solid #39FF14`,
+            borderRadius: `12px`,
+            padding: `20px`,
+            maxWidth: `400px`,
+            width: `90%`
           }}
         >
           <div className="text-[#39FF14]">
@@ -344,7 +344,7 @@ const Page = () => {
               target="_blank"
               className="inline-block px-4 py-2 bg-[#39FF14] text-black font-semibold rounded-lg hover:bg-black hover:text-[#39FF14] border border-[#39FF14] transition-all duration-300"
             >
-              Loyihani ko'rish
+              Loyihani ko`rish
             </Link>
           </div>
         </Rodal>

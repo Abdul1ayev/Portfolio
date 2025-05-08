@@ -4,8 +4,6 @@ import Link from "next/link";
 import React, { useCallback, useEffect, useState } from "react";
 import { createClient } from "@/supabase/client";
 import { motion } from "framer-motion";
-import { FaTelegram, FaGithub, FaLinkedin, FaCode, FaTwitter } from "react-icons/fa";
-import { MdEmail } from "react-icons/md";
 
 type Tools = {
   id: string;
@@ -33,7 +31,7 @@ const About = () => {
     },
     {
       title: "Dizayn",
-      description: "Kuchli dizayn va kichik detallargacha e'tibor berish",
+      description: "Kuchli dizayn va kichik detallargacha e`tibor berish",
       icon: "/dizayn.svg"
     },
     {
@@ -88,7 +86,7 @@ const About = () => {
             >
               <p className="text-white text-lg leading-relaxed">
                 Men Abdullayev Samir, 15 yoshdaman, Buxoro viloyati, Kogon shahrida
-                tug'ilganman. Dasturlashga qiziqishim 12 yoshimdan boshlangan va
+                tug`ilganman. Dasturlashga qiziqishim 12 yoshimdan boshlangan va
                 shu kungacha turli loyihalar ustida ishlab kelmoqdaman. Asosan
                 veb-dasturlash sohasida Full Stack developer sifatida faoliyat
                 yuritaman.
@@ -96,14 +94,14 @@ const About = () => {
               <p className="text-white text-lg mt-4 leading-relaxed">
                 Hozirda React, Next.js va Node.js texnologiyalari bilan ishlayman.
                 Loyihalarimda kod sifatiga va foydalanuvchilar uchun qulay
-                interfeys yaratishga alohida e'tibor beraman.
+                interfeys yaratishga alohida e`tibor beraman.
               </p>
               <div className="flex gap-4 mt-6">
                 <Link
                   href="/contact"
                   className="inline-block bg-[#39FF14] text-black px-6 py-3 rounded-md font-semibold hover:bg-[#2EDC12] transition text-lg"
                 >
-                  Bog'lanish
+                  Bog`lanish
                 </Link>
                 
               </div>
