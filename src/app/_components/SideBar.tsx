@@ -8,7 +8,6 @@ import {
   FaExternalLinkAlt,
 } from "react-icons/fa";
 import Image from "next/image";
-import Link from "next/link";
 
 const App: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
