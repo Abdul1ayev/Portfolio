@@ -235,7 +235,7 @@ const Page = () => {
                     className="w-full px-4 py-2.5 bg-black transition-all duration-300 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#39FF14] focus:border-transparent"
                   />
                 </motion.div>
-                php-template Копировать Редактировать
+                
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
